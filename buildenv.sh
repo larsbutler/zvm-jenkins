@@ -58,3 +58,5 @@ lxc_scp () {
 sudo lxc-clone -o $LXC_TEMPLATE -n $CURRENT_JOB_ID
 # start lxc, daemonized
 sudo lxc-start -n $CURRENT_JOB_ID -d
+
+get_ip
