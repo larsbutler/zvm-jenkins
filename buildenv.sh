@@ -47,7 +47,7 @@ get_ip () {
 
 # Run a command remotely on an lxc instance
 lxc_run () {
-    sudo lxc-attach -n $CURRENT_JOB_ID -- "$*"
+    ssh ubuntu@$IP -oStrictHostKeyChecking=no $*
 }
 
 lxc_scp () {
