@@ -47,14 +47,16 @@ get_ip () {
 
 # Run a command remotely on an lxc instance
 lxc_run () {
-    sudo lxc-attach -n $CURRENT_JOB_ID -- "$*"
+    ssh ubuntu@$IP -oStrictHostKeyChecking=no $*
 }
 
 lxc_scp () {
-    scp -oStrictHostKeyChecking=no "$*"
+    scp -oStrictHostKeyChecking=no $*
 }
 
 # clone an lxc container
 sudo lxc-clone -o $LXC_TEMPLATE -n $CURRENT_JOB_ID
 # start lxc, daemonized
 sudo lxc-start -n $CURRENT_JOB_ID -d
+
+get_ip
